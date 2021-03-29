@@ -7,7 +7,6 @@
       <span>Retour</span>
     </p>
     <h1>{{ aster.name }}</h1>
-    <!-- <p>{{ aster }}</p> -->
     <ul class="characteristic">
       <li v-if="aster.mass">
         <span>Masse : </span>
