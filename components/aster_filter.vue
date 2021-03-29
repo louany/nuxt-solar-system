@@ -24,7 +24,8 @@ export default {
 <style lang="scss">
 .aster_filter {
   padding-top: 1.2rem;
-
+  white-space: nowrap;
+  overflow: auto;
   span {
     padding: .8rem 1.2rem;
     display: inline-block;

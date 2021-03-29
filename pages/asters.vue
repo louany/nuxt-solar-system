@@ -1,7 +1,6 @@
 <template>
   <section class="section_one">
     <h1>Les astres</h1>
-    <!-- {{ asters }} -->
     <aster-list
       v-if="!isLoading"
       :asters="asters"
