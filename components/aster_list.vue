@@ -32,7 +32,7 @@ export default {
     const filteteredAstersList = computed(() => {
       switch (filter.value) {
         case 'isPlanet':
-          return props.asters.filter(aster => aster.isPlanet === true)
+          return props.asters.filter(aster => aster.isPlanet)
           // eslint-disable-next-line no-unreachable
           break
         case 'withMoon':
