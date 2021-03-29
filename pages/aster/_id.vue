@@ -57,9 +57,9 @@ Cette période correspond à la durée mise par l'astre concerné pour revenir a
         <span>{{ aster.sideralRotation }} heures</span>
         <span class="tooltip">La période de rotation est soit la durée mise par un astre (étoile, planète, astéroïde) pour faire un tour sur lui-même (environ 23 h 56 min 4,3 s pour la Terre, par exemple), soit la durée au bout de laquelle une planète retrouve la même orientation par rapport à son étoile (24 h en moyenne pour la Terre, par exemple).</span>
       </li>
-      <li>
+      <li v-if="aster.moons">
         <span>Lunes :</span>
-        <ul v-if="aster.moons">
+        <ul>
           <li
             v-for="moon in aster.moons"
             :key="moon.rel"
@@ -72,9 +72,6 @@ Cette période correspond à la durée mise par l'astre concerné pour revenir a
             </span>
           </li>
         </ul>
-        <span v-else>
-          Non
-        </span>
       </li>
       <li v-if="aster.discoveredBy && aster.discoveryDate">
         <span>Découvert par {{ aster.discoveredBy }}</span>
@@ -127,6 +124,7 @@ export default {
 .backpage {
   padding-top: 2rem;
   display: inline-block;
+  transition: .4s all ease;
   & > * {
     vertical-align: middle;
   }
