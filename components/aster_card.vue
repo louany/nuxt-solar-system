@@ -27,12 +27,12 @@
         >
           En savoir plus
         </nuxt-link>
-        <button v-if="!isFavourites" class="aster_link" @click="addFavourites()">
+        <span v-if="!isFavourites" class="aster_link" @click="addFavourites()">
           Ajouter aux favoris
-        </button>
-        <button v-else class="aster_link" @click="removeFavourites()">
+        </span>
+        <span v-else class="aster_link" @click="removeFavourites()">
           Supprimer des favoris
-        </button>
+        </span>
       </div>
     </article>
   </div>

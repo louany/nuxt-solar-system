@@ -2,7 +2,6 @@
   <div class="container">
     <aster-filter @filter="filtered($event)" />
     <div class="asters_list">
-      <!-- {{ AsterCard }} -->
       <aster-card
         v-for="(aster, index) in asterList"
         :key="index"
@@ -53,7 +52,6 @@ export default {
     return {
       asterList: filteteredAstersList,
       filtered
-
     }
   }
 }

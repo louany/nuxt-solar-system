@@ -1,8 +1,8 @@
 <template>
   <div class="aster_filter">
-    <span @click="all">Tout</span>
-    <span @click="isPlanet">Planètes</span>
-    <span @click="withMoon">Astres possédant une lune</span>
+    <span @click="filterEmit('all')">Tout</span>
+    <span @click="filterEmit('isPlanet')">Planètes</span>
+    <span @click="filterEmit('withMoon')">Astres possédant une lune</span>
   </div>
 </template>
 
@@ -10,21 +10,12 @@
 export default {
   emits: ['filter'],
   setup (_, context) {
-    function all () {
-      context.emit('filter', 'all')
-      console.log(context)
-    }
-    function isPlanet () {
-      context.emit('filter', 'isPlanet')
-    }
-    function withMoon () {
-      context.emit('filter', 'withMoon')
+    function filterEmit (filterName) {
+      context.emit('filter', filterName)
     }
 
     return {
-      all,
-      isPlanet,
-      withMoon
+      filterEmit
     }
   }
 }
