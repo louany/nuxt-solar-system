@@ -2,11 +2,11 @@
 
 This project is a practical work in the context of school.
 
-# Packages 
+## Packages 
 
-Axios : Promise based HTTP client for node.js
-@nuxtjs/toast : Notification
-Nuxt Material Design Icons : Icons Bank
+- Axios : Promise based HTTP client for node.js
+- @nuxtjs/toast : Notification
+- Nuxt Material Design Icons : Icons Bank
 
 ## Build Setup
 
