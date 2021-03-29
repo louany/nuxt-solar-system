@@ -23,29 +23,31 @@
 </template>
 
 <script>
-import { onMounted, ref } from '@nuxtjs/composition-api'
-import axios from 'axios'
+import { computed, onMounted, ref, useStore } from '@nuxtjs/composition-api'
 import AsterList from '../components/aster_list.vue'
 
 export default {
   components: {
     AsterList
   },
-  setup (_) {
-    const astersList = ref([])
+  setup (_, context) {
     const isLoading = ref(Boolean)
     const error = ref('')
     const errorClass = ref('in_progress')
-    const getAllAsters = async () => {
+
+    const store = useStore()
+
+    const astersList = computed(() => {
+      return store.getters['asters/getAsters']
+    })
+
+    const fecthAsters = () => {
       isLoading.value = true
-      await axios
-        .get('https://api.le-systeme-solaire.net/rest/bodies/')
-        .then(resp => (astersList.value = resp.data.bodies))
-        .catch((error) => { error.value = 'Une erreur est survenue' })
+      if (store.state.asters.asters === null) { store.dispatch('asters/fetchAsters') }
       isLoading.value = false
     }
 
-    onMounted(getAllAsters)
+    onMounted(fecthAsters)
 
     return {
       asters: astersList,

@@ -53,6 +53,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
 }
 #header.open {
   #navigationBar {
@@ -71,12 +72,6 @@ export default {
     }
   }
 }
-#header.close {
-    #toggle-wrapper {
-      background: rgba(255, 255, 255, 0.171);
-      border-radius: 0 0px 60px 0;
-  }
-}
 #toggle-wrapper {
   position: absolute;
   padding: 2rem;
@@ -85,7 +80,7 @@ export default {
   min-width: 10rem;
   width: 10vw;
   height: 8rem;
-  z-index: 10;
+  z-index: 40;
   cursor: pointer;
 }
 #toggleNav {
@@ -130,7 +125,7 @@ export default {
   transition: .4s all ease;
   width: 30rem;
   border-right: 4px solid rgb(204, 122, 16);
-  background: rgba(19, 15, 70,.5);
+  background: rgba(19, 15, 70,.8);
   padding: 12rem 2rem 2rem;
   a {
       text-decoration: none;
