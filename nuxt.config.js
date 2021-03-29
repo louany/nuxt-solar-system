@@ -37,7 +37,9 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://www.npmjs.com/package/@nuxtjs/toast
     '@nuxtjs/toast',
+    // https://www.npmjs.com/package/nuxt-material-design-icons-iconfont
     'nuxt-material-design-icons'
   ],
 
