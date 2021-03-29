@@ -1,5 +1,7 @@
 # nuxt-solar-system
 
+This project is a practical work in the context of school.
+
 ## Build Setup
 
 ```bash
