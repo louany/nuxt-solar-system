@@ -8,6 +8,9 @@ This project is a practical work in the context of school.
 - @nuxtjs/toast : Notification
 - Nuxt Material Design Icons : Icons Bank
 
+## API
+
+- [api.le-systeme-solaire.net](https://api.le-systeme-solaire.net/) 
 ## Build Setup
 
 ```bash
