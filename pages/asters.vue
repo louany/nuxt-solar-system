@@ -11,14 +11,6 @@
     >
       <p>CHARGEMENT...</p>
     </div>
-    <transition name="fade">
-      <p
-        v-if="error"
-        :class="`error`"
-      >
-        {{ error }}
-      </p>
-    </transition>
   </section>
 </template>
 
@@ -32,8 +24,6 @@ export default {
   },
   setup (_, context) {
     const isLoading = ref(Boolean)
-    const error = ref('')
-    const errorClass = ref('in_progress')
 
     const store = useStore()
 
@@ -51,9 +41,7 @@ export default {
 
     return {
       asters: astersList,
-      isLoading,
-      error,
-      errorClass
+      isLoading
     }
   }
 }
