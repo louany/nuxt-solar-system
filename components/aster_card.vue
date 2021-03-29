@@ -76,10 +76,10 @@ export default {
   .aster-cta {
     display: flex;
     padding-top: 2rem;
+    justify-content: space-between;
   }
   .aster_link {
     text-align: center;
-    width: 100%;
     display: block;
     color: #fff;
     background: rgb(45, 37, 151);
