@@ -1,5 +1,11 @@
 <template>
   <section class="aster_describ">
+    <p class="link backpage" @click="backPage()">
+      <span class="material-icons">
+        keyboard_backspace
+      </span>
+      <span>Retour</span>
+    </p>
     <h1>{{ aster.name }}</h1>
     <!-- <p>{{ aster }}</p> -->
     <ul class="characteristic">
@@ -76,9 +82,6 @@ Cette période correspond à la durée mise par l'astre concerné pour revenir a
         <span>Le {{ aster.discoveryDate }}</span>
       </li>
     </ul>
-    <p class="link backpage" @click="backPage()">
-      Retour
-    </p>
   </section>
 </template>
 
@@ -124,6 +127,12 @@ export default {
 .backpage {
   padding-top: 2rem;
   display: inline-block;
+  & > * {
+    vertical-align: middle;
+  }
+  &:hover {
+    margin-left: 1.2rem;
+  }
 }
 .characteristic {
   list-style: none;

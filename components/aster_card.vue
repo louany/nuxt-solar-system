@@ -1,38 +1,20 @@
 <template>
   <div class="aster_card">
     <article class="aster">
-      {{ aster.name }}
-      <p class="isPlanet">
-        <span>Planète : </span>
-        <span v-if="aster.isPlanet">
-          Oui
-        </span>
-        <span v-else>
-          Non
-        </span>
-      </p>
-      <p class="withMoon">
-        <span>Lunes :  </span>
-        <span v-if="aster.moons">
-          Oui
-        </span>
-        <span v-else>
-          Non
-        </span>
-      </p>
+      <p>{{ aster.name }}</p>
       <div class="aster-cta">
+        <span v-if="!isFavourites" class="aster_link material-icons" @click="addFavourites()">
+          favorite_border
+        </span>
+        <span v-else class="aster_link material-icons" @click="removeFavourites()">
+          favorites
+        </span>
         <nuxt-link
           :to="{ name : 'aster-id', params : { id : aster.id } }"
           class="aster_link"
         >
-          En savoir plus
+          Voir plus
         </nuxt-link>
-        <span v-if="!isFavourites" class="aster_link" @click="addFavourites()">
-          Ajouter aux favoris
-        </span>
-        <span v-else class="aster_link" @click="removeFavourites()">
-          Supprimer des favoris
-        </span>
       </div>
     </article>
   </div>
@@ -46,17 +28,30 @@ export default {
       required: true
     }
   },
-  setup (props) {
+  setup (props, context) {
     const store = useStore()
+    const toastTextAdd = `${props.aster.name} a été ajouté aux favoris`
+    const toastTextRemove = `${props.aster.name} a été retiré des favoris`
+    const toastOptions = {
+      theme: 'bubble',
+      duration: 3000,
+      action: {
+        text: 'Voir les favoris',
+        onClick: (e, toastObject) => context.root._router.push('/favourites')
+      }
+    }
+
     const isFavourites = computed(() => {
       return store.state.favourites.favouritesAsters.some(a => a.id === props.aster.id)
     })
 
     function addFavourites () {
       store.dispatch('favourites/addFavouriteAster', props.aster)
+      this.$toasted.show(toastTextAdd, toastOptions)
     }
     function removeFavourites () {
       store.dispatch('favourites/removeFavouriteAster', props.aster)
+      this.$toasted.show(toastTextRemove, toastOptions)
     }
 
     return {
@@ -87,14 +82,14 @@ export default {
     width: 100%;
     display: block;
     color: #fff;
-    padding: .4rem .8rem;
     background: rgb(45, 37, 151);
     text-decoration: none;
-    border: 1px solid #fff;
     cursor: pointer;
+    &.material-icons {
+      max-width: 24px;
+    }
     &:hover {
       color: rgb(204, 122, 16);
-      border: 1px solid rgb(204, 122, 16);
     }
   }
   @media (min-width: 768px) {
